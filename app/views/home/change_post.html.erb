@@ -1,0 +1,26 @@
+﻿<!--
+  To change the information of a post in the database, send the changed information to the URL with post identifier which designates the specific post.
+  action - specifies where to send the form-data when the form is submitted.
+  method - specifies the HTTP method to use when sending form-data.    
+-->
+<div class = "container">
+    <form action="/save_change/<%=@one_post.id%>" method="GET">
+      <div class ="form-group">
+        <label for ="title"> Title </label>
+        <input name="title" value="<%=@one_post.title%>" type="text" class="form-control" id="title" placeholder="제목을 써 주세요.">
+      </div>
+      <div class ="form-group">
+        <label for ="content"> Content </label>
+        <textarea name="content" type="text" class="form-control" row"7" id="content"><%=@one_post.content%></textarea>
+      </div>
+      <div class ="form-group">
+        <label for ="tag_list"> Tag </label>
+        <input name="tag_list" value="<%=@one_post.tag_list%>" type="text" class="form-control" id="title" placeholder="#태그">
+      </div>
+      <div class ="form-group">
+        <label for ="image"> Image </label>
+        <input name="image" value="<%=@one_post.image%>" type="text" class="form-control" row"1" id="content" placeholder="이미지 이름만 써 주세요. .jpg는 생략">
+      </div>
+        <button type="submit" class="btn btn-default" style="margin-top:20px">전송</button>
+    </form>
+</div>

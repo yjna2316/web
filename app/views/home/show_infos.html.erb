@@ -1,0 +1,56 @@
+﻿<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:rgba(0,205,205,1);opacity:0.5">
+  <div class="container">
+  <div class="navbar-header" style="content:12px"> 
+    <a class="navbar-brand"  style="color:white;"><strong>전시 위치 한눈에 보기(서울)</strong></a>
+  </div> 
+  <div class="navbar-collapse  collapse"> 
+    <form class="nav navbar-nav navbar-middle scroll" style= "margin: 3px 0px 0px 450px" action="/bbb" method="GET" />
+      <input id="search" name="tag" type="search"  placeholder="Search" />
+      <button type="submit" value="search">&nbsp;</button> 
+    </form>
+    <ul class="nav navbar-nav navbar-right scroll">     
+      <div class="btn-group" style="margin:3px">
+        <button type="button" class="btn btn-danger" style="background-color:lightgray; color:black;font-family: arial"><strong>종류 선택</strong></button>
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:lightblue">
+          <span class="caret" style="color:black"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="/bbb"><strong>전 시</strong></a></li>
+          <li><a href="/ccc"><strong>공 연</strong></a></li>
+          <li><a href="/ddd"><strong>축 제</strong></a></li>              
+        </ul>
+      </div>
+    </ul>
+  </div> 
+  </div>
+</nav>
+     
+<a href="/main" style="color:blue;"><strong> 첫 화면으로 이동</strong></a>
+<div id="works"  style = "padding-top:15px" class=" clearfix grid">    
+   <% @every_homes.each do |p| %> 
+   <figure class="effect-oscar  wowload fadeInUp" style="padding-right:30px; padding-left:30px;padding-bottom:30px; padding-up:10px;position:relative" >
+   <div> 
+      <%= image_tag p.image, :width=>450, :height=>300 %>
+   </div>
+        
+   <figcaption>
+      <h2><%=p.title %></h2>
+      <br>
+      <p> <%=p.content %>
+      <br>
+         <a href="images/portfolio/2.jpg" title="1" data-gallery>바로가기</a>
+      <br>
+         Tags: <%=raw p.tags.map(&:name).map{|t| link_to t, tag_path(t) }.join{', '}%>
+      </p>            
+    </figcaption>
+              
+    <div class style="background-color:#FFCC99; box-sizing: border-box">
+       <h4><strong><%=p.title%></strong></h4>
+       <h8> <%=p.content %></h8>
+       <p><h6>Tags: <%=raw p.tags.map(&:name).map{|t| link_to t, tag_path(t) }.join{', '}%></h6></p>
+    </div>
+  </figure>
+  <% end %>
+</div> 
+   
