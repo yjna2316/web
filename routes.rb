@@ -1,19 +1,21 @@
+﻿# mapping url to the specific action in the 'home' controller to act something  
 Rails.application.routes.draw do
- get 'home/index'
- 
-
-  get '/write1' => 'home#write1'
-  post '/write2' => 'home#write2'
-  get '/list' => 'home#list'
-
-  get "/aaa" => 'home#index'
-  get '/bbb' => 'home#bbb' #전시
+  get '/' => 'home#main'
+  get '/create_new_post' => 'home#create_new_post'
+  post '/save_new_post' => 'home#save_new_post'
+  get '/show_db' => 'home#show_db'
+  get '/main' => 'home#main'
+  get '/show_infos' => 'post#show_infos' 
   
-  get 'tags/:tag', to:'home#bbb', as: :tag
-  resources :homes
-  get 'update1/:home_id' => "home#update1"
-  get 'update2/:home_id' => "home#update2"
-  get 'destroy/:home_id' => "home#destroy"
+  get 'tags/:tag', to:'post#show_infos', as: :tag
+  resources :posts
+  
+  get 'change_post/:post_id' => "home#change_post"
+  get 'save_change/:post_id' => "home#save_change"
+  get 'delete_post/:post_id' => "home#delete_post"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
