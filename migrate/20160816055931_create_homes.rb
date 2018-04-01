@@ -1,7 +1,7 @@
-class CreateHomes < ActiveRecord::Migration
+class CreatePosts < ActiveRecord::Migration
   def change
-    create_table :homes do |t|
-      t.string "title"  //post name
+    create_table :posts do |t|
+      t.string "title"  
       t.string "content"
       t.string "tag_list"
       t.string "image"
