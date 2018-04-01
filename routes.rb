@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   get 'change_post/:post_id' => "home#change_post"
   get 'save_change/:post_id' => "home#save_change"
   get 'delete_post/:post_id' => "home#delete_post"
-  #end
 end
