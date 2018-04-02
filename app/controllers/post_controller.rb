@@ -11,7 +11,7 @@ def main
   end
 end
 
-def show_infos
+def show_infos #find and show all posts which have tags matched to the user input. Else show all in db
    if params[:tag]
     @posts = Post.tagged_with(params[:tag]).all.order("id desc")
   else
