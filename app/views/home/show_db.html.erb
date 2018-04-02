@@ -1,15 +1,15 @@
 ﻿<!-- 
   Show the record of posts in the database in the latest order
 -->
- <% @every_homes.each do |p| %>
+ <% @posts.each do |p| %>
    <h4><strong><%= p.title %></strong></h4>
    <%= p.content %>
    <%= p.image %>
    <strong><%= p.tag_list %></strong>
-   <a href="/update1/<%= p.id %>">[수정]</a>
+   <a href="/modify_post_view/<%= p.id %>">[수정]</a>
    <a href="/destroy/<%= p.id %>">[삭제]</a>
    <hr>
  <% end %>
 
- <p><strong><a href="/write1">정보 더 올리기</a></strong></p>
+ <p><strong><a href="/create_new_post">정보 더 올리기</a></strong></p>
 
