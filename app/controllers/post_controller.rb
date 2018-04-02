@@ -19,10 +19,10 @@ def show_infos
   end
 end 
 
-def write_view #내용쓰기(view), Create
+def create_new_post #내용쓰기(view), Create
 end
 
-def write_db #db저장, Creat  
+def save_new_post #db저장, Creat  
   new_post = Post.new
   new_post.title = params[:title]
   new_post.content = params[:content]
@@ -43,11 +43,11 @@ def destroy #삭제
 redirect_to "/list"
 end
 
-def update1 #수정하기(overwrite)
+def modify_post_view #수정하기(overwrite)
  @one_post = Post.find(params[:Post_id])
 end
 
-def update2 #수정내용 db에 저장
+def save_change #수정내용 db에 저장
   @one_post = Post.find(params[:Post_id])
   @one_post.title= params[:title]
   @one_post.content = params[:content]
