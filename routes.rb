@@ -1,16 +1,16 @@
-﻿# mapping url to the specific action in the 'home' controller to act something  
+﻿# mapping url to the specific action in the 'post' controller to act something  
 Rails.application.routes.draw do
-  get '/' => 'home#main'
-  get '/create_new_post' => 'home#create_new_post'
-  post '/save_new_post' => 'home#save_new_post'
-  get '/show_db' => 'home#show_db'
-  get '/main' => 'home#main'
+  get '/' => 'post#main'
+  get '/create_new_post' => 'post#create_new_post'
+  post '/save_new_post' => 'post#save_new_post'
+  get '/list' => 'post#list'
+  get '/main' => 'post#main'
   get '/show_infos' => 'post#show_infos' 
   
   get 'tags/:tag', to:'post#show_infos', as: :tag
   resources :posts
   
-  get 'change_post/:post_id' => "home#change_post"
-  get 'save_change/:post_id' => "home#save_change"
-  get 'delete_post/:post_id' => "home#delete_post"
+  get 'modify_post_view/:post_id' => "post#modify_post_view"
+  get 'save_change/:post_id' => "post#save_change"
+  get 'delete_post/:post_id' => "post#delete_post"
 end
